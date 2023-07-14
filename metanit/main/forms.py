@@ -1,8 +1,7 @@
-from .models import Task
-from django.forms import ModelForm, TextInput, Textarea
+from .models import File
+from django.forms import ModelForm, TextInput, Textarea, FileInput
 
-
-class TaskForm(ModelForm):
+"""class TaskForm(ModelForm):
     class Meta:
         model = Task
         fields = ["title", "task"]
@@ -15,4 +14,18 @@ class TaskForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': "Введите описание"
             }),
+        }
+"""
+
+
+class FileForm(ModelForm):
+    class Meta:
+        model = File
+        fields = ["title", "file"]
+        widgets = {
+            "title": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': "Введите название"
+            }),
+            "file": FileInput()
         }

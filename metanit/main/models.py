@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Task(models.Model):
+"""class Task(models.Model):
     title = models.CharField('Название', max_length=50)
     task = models.TextField('Описание')
 
@@ -10,12 +10,15 @@ class Task(models.Model):
 
     class Meta:
         verbose_name = 'Задача'
-        verbose_name_plural = 'Задачи'
+        verbose_name_plural = 'Задачи'"""
 
 
 class File(models.Model):
     title = models.CharField(max_length=150)
     file = models.FileField(upload_to='file/%Y-%m-%d/')
+
+    def __repr__(self):
+        return 'Resume(%s, %s)' % (self.title, self.file)
 
     def __str__(self):
         return self.title

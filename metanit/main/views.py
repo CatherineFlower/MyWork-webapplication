@@ -1,18 +1,16 @@
 from django.shortcuts import render, redirect
-from .models import Task
-from .forms import TaskForm
+from .models import File
+from .forms import FileForm
 
 
-def index(request):
-    tasks = Task.objects.order_by('-id')
-    return render(request, 'main/index.html', {'title': 'Главная страница сайта', 'tasks': tasks})
+def home(request):
+    #tasks = Task.objects.order_by('-id')
+    #files = File.objects.order_by('-id')[:1]
+    files = File.objects.all()
+    return render(request, 'main/home.html', {'title': 'Загруженные файлы', 'files': files})
 
 
-def about(request):
-    return render(request, 'main/about.html')
-
-
-def create(request):
+"""def create(request):
     error = ''
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -27,4 +25,18 @@ def create(request):
         'form': form,
         'error': error
     }
-    return render(request, 'main/create.html', context)
+    return render(request, 'main/create.html', context)"""
+
+
+def load(request):
+    if request.method == 'POST':
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = FileForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'main/load.html', context)
