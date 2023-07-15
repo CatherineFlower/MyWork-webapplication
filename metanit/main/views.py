@@ -4,19 +4,14 @@ from .forms import FilesForm, InfoForm
 
 
 def reg(request):
-    error = ''
     if request.method == 'POST':
         form = InfoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/home')
-        else:
-            error = 'ERROR'
-    else:
-        form = InfoForm()
+            return redirect('home')
+    form = InfoForm()
     context = {
         'form': form,
-        'error': error,
     }
     return render(request, 'main/reg.html', context)
 
