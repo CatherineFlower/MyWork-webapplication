@@ -1,26 +1,26 @@
-from .models import File
-from django.forms import ModelForm, TextInput, Textarea, FileInput
+from .models import Files, File, Info
+from django.forms import ModelForm, TextInput, EmailInput, FileInput
 
-"""class TaskForm(ModelForm):
+
+class InfoForm(ModelForm):
     class Meta:
-        model = Task
-        fields = ["title", "task"]
+        model = Info
+        fields = ["email", "name"]
         widgets = {
-            "title": TextInput(attrs={
+            "email": EmailInput(attrs={
                 'class': 'form-control',
-                'placeholder': "Введите название"
+                'placeholder': "Адрес электроннной почты"
             }),
-            "task": Textarea(attrs={
+            "name": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': "Введите описание"
+                'placeholder': "ФИО"
             }),
         }
-"""
 
 
-class FileForm(ModelForm):
+class FilesForm(ModelForm):
     class Meta:
-        model = File
+        model = Files
         fields = ["title", "file"]
         widgets = {
             "title": TextInput(attrs={

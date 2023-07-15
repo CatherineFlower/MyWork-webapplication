@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    {% if file %}
+         {% for el in file %}
+
+        {% endfor %}
+    {% else %}
+        <p>Файла нет!</p>
+    {% endif %}
+{% endblock %}
+

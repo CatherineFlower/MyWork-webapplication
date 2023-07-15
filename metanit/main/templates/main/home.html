@@ -5,16 +5,15 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Главнюк</h1>
-    {% if tasks %}
-         {% for el in tasks %}
+    <h1>Все файлы:</h1>
+    {% if files %}
+         {% for el in files %}
             <div class="alert alert-warning mt-2">
                 <h3>{{ el.title }}</h3>
-                <p>{{ el.task }}</p>
             </div>
         {% endfor %}
     {% else %}
-        <p>Записей кот наплакал, идите заполняйте</p>
+        <p>Файлов нет!</p>
     {% endif %}
 {% endblock %}
 

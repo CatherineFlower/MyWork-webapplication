@@ -1,19 +1,21 @@
 from django.db import models
+import pandas as pd
+import pretty_html_table as pht
 
 
-"""class Task(models.Model):
-    title = models.CharField('Название', max_length=50)
-    task = models.TextField('Описание')
+class Info(models.Model):
+    email = models.EmailField('Email')
+    name = models.CharField('ФИО')
 
     def __str__(self):
-        return self.title
+        return self.name
 
     class Meta:
-        verbose_name = 'Задача'
-        verbose_name_plural = 'Задачи'"""
+        verbose_name = 'Пользователь сайта'
+        verbose_name_plural = 'Пользователи сайта'
 
 
-class File(models.Model):
+class Files(models.Model):
     title = models.CharField(max_length=150)
     file = models.FileField(upload_to='file/%Y-%m-%d/')
 
@@ -26,3 +28,7 @@ class File(models.Model):
     class Meta:
         verbose_name = 'Файл'
         verbose_name_plural = 'Файлы'
+
+
+class File(models.Model):
+    title = 1
