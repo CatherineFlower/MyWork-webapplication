@@ -39,7 +39,7 @@ class File(models.Model):
     his_name = models.CharField(verbose_name='Прежние названия', default='-')
 
     def __str__(self):
-        return self.num
+        return self.city
 
     class Meta:
         verbose_name = 'Файл'
