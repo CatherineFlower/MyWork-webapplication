@@ -5,15 +5,39 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Все файлы:</h1>
     {% if files %}
-         {% for el in files %}
-            <div class="alert alert-warning mt-2">
-                <h3>{{ el.title }}</h3>
-            </div>
-        {% endfor %}
+        <table border="1" align="center" valign="center">
+            <thead>
+                <th>№</th>
+                <th>Город</th>
+                <th>Регион</th>
+                <th>Федеральный округ</th>
+                <th>Население</th>
+                <th>Основание или первое упоминание</th>
+                <th>Статус города</th>
+                <th>Прежние названия</th>
+            </thead>
+            <tbody>
+            {% for k in files  %}
+            <tr>
+                <td>{{k.num}}</td>
+                <td>{{k.city}}</td>
+                <td>{{k.reg}}</td>
+                <td>{{k.fed_o}}</td>
+                <td>{{k.hum}}</td>
+                <td>{{k.his}}</td>
+                <td>{{k.status}}</td>
+                {% if k.his_name == "nan" %}
+                    <td>  </td>
+                {% else %}
+                    <td>{{k.his_name}}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     {% else %}
-        <p>Файлов нет!</p>
+        <p>Файла нет!</p>
     {% endif %}
 {% endblock %}
 
