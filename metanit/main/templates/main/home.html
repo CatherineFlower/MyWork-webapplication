@@ -6,21 +6,32 @@
 
 {% block content %}
     {% if files %}
-        <table border="1" align="center" valign="center">
-            <thead>
-                <th>№</th>
-                <th>Город</th>
-                <th>Регион</th>
-                <th>Федеральный округ</th>
-                <th>Население</th>
-                <th>Основание или первое упоминание</th>
-                <th>Статус города</th>
-                <th>Прежние названия</th>
+        <form>
+            <div class="form-group">
+                <label></label>
+            </div>
+        </form>
+        <h3>Распаршенный файл:</h3>
+        <form>
+            <div class="form-group">
+                <label></label>
+            </div>
+        </form>
+        <table class="table table-bordered" border="1" align="center" valign="center">
+            <thead class="thead-light">
+                <th scope="col">№</th>
+                <th scope="col">Город</th>
+                <th scope="col">Регион</th>
+                <th scope="col">Федеральный округ</th>
+                <th scope="col">Население</th>
+                <th scope="col">Основание или первое упоминание</th>
+                <th scope="col">Статус города</th>
+                <th scope="col">Прежние названия</th>
             </thead>
             <tbody>
             {% for k in files  %}
             <tr>
-                <td>{{k.num}}</td>
+                <th scope="col">{{k.num}}</th>
                 <td>{{k.city}}</td>
                 <td>{{k.reg}}</td>
                 <td>{{k.fed_o}}</td>
@@ -36,6 +47,11 @@
             {% endfor %}
             </tbody>
         </table>
+        <form>
+            <div class="form-group">
+                <label></label>
+            </div>
+        </form>
     {% else %}
         <p>Файла нет!</p>
     {% endif %}

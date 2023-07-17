@@ -9,7 +9,7 @@ class InfoForm(ModelForm):
         widgets = {
             "email": EmailInput(attrs={
                 'class': 'form-control',
-                'placeholder': "Адрес электроннной почты"
+                'placeholder': "Адрес электронной почты"
             }),
             "name": TextInput(attrs={
                 'class': 'form-control',
@@ -27,5 +27,9 @@ class FilesForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': "Введите название"
             }),
-            "file": FileInput()
+            "file": FileInput(attrs={
+                'class': "file-input",
+                'placeholder': "Файл",
+            }
+            )
         }
