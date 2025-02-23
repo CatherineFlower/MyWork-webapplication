@@ -22,7 +22,8 @@ def home(request):
     fi = Files.objects.all()
     files = File.objects.all()
     if fi:
-        for dirpath, dirname, filename in os.walk("C:\django\metanit\media\ile"):
+        for dirpath, dirname, filename in os.walk("/Users/vladimirfilimonov/StudioProjects/MyWork-webapplication/metanit/media/ile"):
+            ad = None
             for fil in filename:
                 ad = os.path.join(dirpath, fil)
         df = pd.read_excel(ad, header=None)
