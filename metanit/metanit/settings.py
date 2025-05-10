@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'metanit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'FirstProject',
-        'USER': 'FirstProject-user123456',
+        'NAME': 'sber_web_app_django',
+        'USER': 'vladimirfilimonov',
         'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '5432',
